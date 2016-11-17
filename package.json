@@ -1,0 +1,11 @@
+{
+  "name": "ldap-validation",
+  "version": "1.0.0",
+  "description": "service to validate request against a LDAP server and returns JSON data accordingly",
+  "main": "ldapValidation.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chia-Yu Tsai",
+  "license": "ISC"
+}
