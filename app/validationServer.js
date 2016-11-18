@@ -20,16 +20,28 @@ app.use(bodyParser.urlencoded({ extended: true })) // parse application/x-www-fo
 app.use(bodyParser.json()); // parse application/json
 
 var mssqlConfig = {
-    //server: "upgi.ddns.net", // access database from the Internet (development)
-    server: "192.168.168.5", // access database from LAN (production)
-    user: "upgiSystem",
-    password: "upgiSystem"
+    server: config.mssqlServerHost.slice(7),
+    user: config.upgiSystemAccount,
+    password: config.upgiSystemPassword
 };
 
+var upgiSystemList = [];
 var websitePrivilegeData = [];
 mssql.connect(mssqlConfig).then(function() { // fetch data from server
     var mssqlRequest = new mssql.Request();
-    var queryString = "SELECT a.erpID,a.systemID,b.cReference FROM upgiSystem.dbo.websitePrivilege a INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id;";
+    var queryString = "SELECT * FROM upgiSystem.dbo.system;";
+    mssqlRequest.query(queryString).then(function(resultset) {
+        mssql.close();
+        console.log("系統列表查詢成功");
+        upgiSystemList = resultset;
+    }).catch(function(error) {
+        console.log("系統列表查詢失敗：" + error);
+        upgiSystemList = [];
+    });
+    queryString =
+        "SELECT a.erpID,a.systemID,b.reference,b.cReference " +
+        "FROM upgiSystem.dbo.websitePrivilege a " +
+        "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id;";
     mssqlRequest.query(queryString).then(function(resultset) {
         mssql.close();
         console.log("網頁使用權限資料查詢成功");
@@ -41,25 +53,34 @@ mssql.connect(mssqlConfig).then(function() { // fetch data from server
 });
 
 app.get("/", function(request, response) { // takes the user to UPGI portal page
-    return response.status(200).render("portal");
+    return response.status(200).render("portal", {
+        serverHost: config.serverHost,
+        serverPort: config.serverPort
+    });
 });
 
 app.get("/status", function(request, response) { // route that provides status verification
-    console.log("統義玻璃 LDAP 認證系統運行中...(" + config.serverHost + ":" + config.serverPort + ")");
+    console.log("LDAP 認證系統運行中...(" + config.serverHost + ":" + config.serverPort + ")");
     return response.status(200).json('{"status":"online"}');
 });
 
 app.get("/loginFailure", function(request, response) { // serve login failure page
-    response.render("loginFailure");
+    return response.render("loginFailure", {
+        serverHost: config.serverHost,
+        serverPort: config.serverPort
+    });
 });
 
 app.route("/login") // login related routes
     .get(function(request, response) { // supply user with a login page
-        return response.render("login", { registeredWebsiteList: websitePrivilegeData });
+        return response.render("login", {
+            upgiSystemList: upgiSystemList,
+            serverHost: config.serverHost,
+            serverPort: config.serverPort
+        });
     })
     .post(function(request, response) { // route that verifies a login request and supplies token when successful
         console.log("收到驗證要求...");
-        console.log(request.body);
         var baseDN = "dc=upgi,dc=ddns,dc=net";
         var ldapClient = ldap.createClient({ url: config.ldapServerHost + ":" + config.ldapServerPort });
         ldapClient.bind("uid=" + request.body.loginID + ",ou=user," + baseDN, request.body.password, function(error) {
@@ -70,28 +91,30 @@ app.route("/login") // login related routes
             ldapClient.unbind(function(error) {
                 if (error) {
                     console.log("LDAP 伺服器分離失敗：" + error);
-                    return response.status(500).json({ "authenticated": false, "message": "LDAP 伺服器分離失敗：" + error });
+                    return response.status(500).json({
+                        "authenticated": false,
+                        "message": "LDAP 伺服器分離失敗：" + error
+                    });
                 }
                 console.log("帳號驗證成功...");
                 mssql.connect(mssqlConfig).then(function() { // continue to check if user has rights to access the website of the system selected
-                    var queryString = "SELECT systemID FROM upgiSystem.dbo.websitePrivilege WHERE erpID='" +
+                    var queryString =
+                        "SELECT a.systemID,b.reference " +
+                        "FROM upgiSystem.dbo.websitePrivilege a " +
+                        "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id " +
+                        "WHERE erpID='" +
                         request.body.loginID + "';"
                     var mssqlRequest = new mssql.Request();
                     mssqlRequest.query(queryString).then(function(resultset) {
                         mssql.close();
-                        console.log(resultset);
-                        if (resultset[0].hasAccess !== 1) {
-                            console.log("使用者無權使用該系統網頁");
-                            return response.status(403).redirect(config.serverHost + ":" + config.serverPort + "/loginFailure");
-                        }
-                        console.log("使用者系統權限認證成功");
+                        console.log("使用者系統權限認證完畢");
                         var payload = { loginID: request.body.loginID };
-                        var expiration = moment(moment(), "YYYY-MM-DD HH:mm:ss").add(1, 'hours').format("YYYY-MM-DD HH:mm:ss");
                         var token = jwt.sign(payload, app.get("passphrase"), { expiresIn: 3600 });
-                        console.log("token 失效時間： " + expiration);
-                        return response.status(200).json({
+                        return response.status(200).render("authorizedPortal", {
                             token: token,
-                            expiration: expiration
+                            authorizedSystemList: JSON.stringify(resultset),
+                            serverHost: config.serverHost,
+                            serverPort: config.serverPort
                         });
                     }).catch(function(error) {
                         console.log("網頁使用權限資料查詢失敗：" + error);
@@ -124,14 +147,26 @@ app.post("/validate", function(request, response) { //verify a token
 });
 
 app.listen(config.serverPort); // start server
-console.log("統義玻璃 LDAP 認證系統運行中...(" + config.serverHost + ":" + config.serverPort + ")");
+console.log("LDAP 認證系統運行中...(" + config.serverHost + ":" + config.serverPort + ")");
 
 var scheduledPrivilegeTableUpdate = new CronJob("0 * * * * *", function() { // periodically updates the privilege data
     var currentDatetime = moment(moment(), "YYYY-MM-DD HH:mm:ss");
     console.log(currentDatetime.format("YYYY-MM-DD HH:mm:ss") + " 更新");
     mssql.connect(mssqlConfig).then(function() { // fetch data from server
-        var queryString = "SELECT a.erpID,a.systemID,b.cReference FROM upgiSystem.dbo.websitePrivilege a INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id;";
         var mssqlRequest = new mssql.Request();
+        var queryString = "SELECT * FROM upgiSystem.dbo.system;";
+        mssqlRequest.query(queryString).then(function(resultset) {
+            mssql.close();
+            console.log("系統列表查詢成功");
+            upgiSystemList = resultset;
+        }).catch(function(error) {
+            console.log("系統列表查詢失敗：" + error);
+            upgiSystemList = [];
+        });
+        queryString =
+            "SELECT a.erpID,a.systemID,b.reference,b.cReference " +
+            "FROM upgiSystem.dbo.websitePrivilege a " +
+            "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id;";
         mssqlRequest.query(queryString).then(function(resultset) {
             mssql.close();
             console.log("網頁使用權限資料查詢成功");

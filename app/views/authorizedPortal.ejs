@@ -90,3 +90,17 @@
 </body>
 
 </html>
+
+<script>
+    var token="";
+    var authorizedSystemList;
+    $("document").ready(function(){
+        token = "<%= token %>";
+        authorizedSystemList = JSON.parse('<%- authorizedSystemList %>');
+        authorizedSystemList.forEach(function(authorizedSystem){
+            $("a."+authorizedSystem.reference)
+                .removeAttr("disabled")
+                .attr("href",$("a."+authorizedSystem.reference).attr("href")+"?token="+token);
+        });
+    });
+</script>
