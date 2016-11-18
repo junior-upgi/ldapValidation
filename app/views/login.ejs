@@ -20,30 +20,35 @@
             </div>
         </div>
         <div class="row">
-            <form id="loginForm" name="loginForm" class="form-horizontal" action="http://localhost:9000/login" method="post" enctype="application/x-www-form-urlencoded">
+            <form id="loginForm" name="loginForm" class="form-horizontal" action="http://192.168.168.25:9000/login" method="post" enctype="application/x-www-form-urlencoded">
                 <div class="form-group">
                     <label for="account" class="col-xs-2 control-label">員工編號</label>
-                    <div class="col-xs-2">
+                    <div class="col-xs-4 col-lg-2">
                         <input id="loginID" name="loginID" type="text" class="form-control" placeholder="員工編號" required />
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="password" class="col-xs-2 control-label">密碼</label>
-                    <div class="col-xs-2">
+                    <div class="col-xs-4 col-lg-2">
                         <input id="password" name="password" type="password" class="form-control" placeholder="密碼" required />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="system" class="col-xs-2 control-label">系統名稱</label>
-                    <div class="col-xs-2">
-                        <input id="system" name="system" type="text" class="form-control" placeholder="系統名稱" readonly />
+                    <label for="systemID" class="col-xs-2 control-label">系統名稱</label>
+                    <div class="col-xs-4 col-lg-2">
+                        <select id="systemID" name="systemID" class="form-control" form="loginForm" required>
+                            <option disabled selected value></option>
+                            <% registeredWebsiteList.forEach(function(registeredWebsite){ %>
+                                <option value="<%= registeredWebsite.systemID %>"><%= registeredWebsite.cReference %></option>
+                            <% }); %>
+                        </select>
                     </div>
                 </div>
                 <div class="btn-group col-xs-offset-2" role="group">
-                    <button type="submit" class="btn btn-default">登入</button>
+                    <button type="submit" class="btn btn-default btn-lg">登入</button>
                 </div>
                 <div class="btn-group" role="group">
-                    <button type="reset" class="btn btn-default">重設</button>
+                    <button type="reset" class="btn btn-default btn-lg">重設</button>
                 </div>
             </form>
         </div>

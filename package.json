@@ -15,10 +15,14 @@
     "dependencies": {
         "body-parser": "*",
         "cors": "*",
+        "cron": "*",
+        "ejs": "*",
         "express": "*",
         "jsonwebtoken": "*",
         "ldapjs": "*",
-        "morgan": "*"
+        "moment-timezone": "*",
+        "morgan": "*",
+        "mssql": "*"
     },
     "devDependencies": {
         "eslint": "*"
