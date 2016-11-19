@@ -7,8 +7,8 @@ var ldap = require("ldapjs");
 var morgan = require("morgan");
 var moment = require("moment-timezone");
 var jwt = require("jsonwebtoken");
-var config = require("./model/config.js");
 var mssql = require("mssql");
+var config = require("./model/config.js");
 
 
 app.set("view engine", "ejs");
