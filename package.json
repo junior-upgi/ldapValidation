@@ -2,7 +2,7 @@
     "name": "ldap-validation",
     "version": "1.0.0",
     "description": "service to validate request against a LDAP server and returns JSON data accordingly",
-    "main": "app/validationServer.js",
+    "main": "ldapValidation.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -13,18 +13,19 @@
     "author": "Chia-Yu Tsai",
     "license": "ISC",
     "dependencies": {
-        "body-parser": "*",
-        "cors": "*",
-        "cron": "*",
-        "ejs": "*",
-        "express": "*",
-        "jsonwebtoken": "*",
-        "ldapjs": "*",
-        "moment-timezone": "*",
-        "morgan": "*",
-        "mssql": "*"
+        "body-parser": "^1.15.2",
+        "cors": "^2.8.1",
+        "cron": "^1.1.1",
+        "ejs": "^2.5.2",
+        "express": "^4.14.0",
+        "jsonwebtoken": "^7.1.9",
+        "ldapjs": "^1.0.1",
+        "moment-timezone": "^0.5.9",
+        "morgan": "^1.7.0",
+        "mssql": "^3.3.0"
     },
     "devDependencies": {
-        "eslint": "*"
+        "bootlint": "^0.14.2",
+        "eslint": "^3.10.2"
     }
 }
