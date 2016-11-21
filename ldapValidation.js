@@ -8,8 +8,7 @@ var morgan = require("morgan");
 var moment = require("moment-timezone");
 var jwt = require("jsonwebtoken");
 var mssql = require("mssql");
-var config = require("./model/config.js");
-
+var config = require("./config.js");
 
 app.set("view engine", "ejs");
 app.set("passphrase", config.passphrase());
@@ -68,6 +67,47 @@ app.get("/loginFailure", function(request, response) { // serve login failure pa
     return response.render("loginFailure", {
         serverHost: config.serverHost,
         serverPort: config.serverPort
+    });
+});
+
+app.post("/getToken", function(request, response) { // login routes for upgiSystems
+    console.log("收到驗證要求...");
+    var baseDN = "dc=upgi,dc=ddns,dc=net";
+    var ldapClient = ldap.createClient({ url: config.ldapServerHost + ":" + config.ldapServerPort });
+    ldapClient.bind("uid=" + request.body.loginID + ",ou=user," + baseDN, request.body.password, function(error) {
+        if (error) {
+            console.log("帳號驗證失敗：" + error);
+            return response.status(403).redirect(config.serverHost + ":" + config.serverPort + "/loginFailure");
+        }
+        ldapClient.unbind(function(error) {
+            if (error) {
+                console.log("LDAP 伺服器分離失敗：" + error);
+                return response.status(500).json({
+                    "authenticated": false,
+                    "message": "LDAP 伺服器分離失敗：" + error
+                });
+            }
+            console.log("帳號驗證成功...");
+            mssql.connect(mssqlConfig).then(function() { // continue to check if user has rights to access the website of the system selected
+                var queryString =
+                    "SELECT a.systemID,b.reference " +
+                    "FROM upgiSystem.dbo.websitePrivilege a " +
+                    "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id " +
+                    "WHERE erpID='" +
+                    request.body.loginID + "';"
+                var mssqlRequest = new mssql.Request();
+                mssqlRequest.query(queryString).then(function(resultset) {
+                    mssql.close();
+                    console.log("使用者系統權限認證完畢");
+                    var payload = { loginID: request.body.loginID };
+                    var token = jwt.sign(payload, app.get("passphrase"), { expiresIn: 3600 });
+                    return response.status(200).send(token).end();
+                }).catch(function(error) {
+                    console.log("網頁使用權限資料查詢失敗：" + error);
+                    return response.status(500).send("").end();
+                });
+            });
+        });
     });
 });
 
