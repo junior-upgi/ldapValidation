@@ -7,8 +7,8 @@ var ldap = require("ldapjs");
 var morgan = require("morgan");
 var moment = require("moment-timezone");
 var jwt = require("jsonwebtoken");
-var mssql = require("mssql");
 var config = require("./config.js");
+var database = require("./database.js");
 
 app.set("view engine", "ejs");
 app.set("passphrase", config.passphrase());
@@ -18,45 +18,40 @@ app.use(morgan("dev")); // log request and result to console
 app.use(bodyParser.urlencoded({ extended: true })) // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
 
-var mssqlConfig = {
-    server: config.mssqlServerHost.slice(7),
-    user: config.upgiSystemAccount,
-    password: config.upgiSystemPassword
-};
-
 var upgiSystemList = [];
 var websitePrivilegeData = [];
-mssql.connect(mssqlConfig).then(function() { // fetch data from server
-    var mssqlRequest = new mssql.Request();
-    var queryString = "SELECT * FROM upgiSystem.dbo.system;";
-    mssqlRequest.query(queryString).then(function(resultset) {
-        mssql.close();
-        console.log("系統列表查詢成功");
-        upgiSystemList = resultset;
-    }).catch(function(error) {
-        console.log("系統列表查詢失敗：" + error);
+database.executeQuery("SELECT * FROM upgiSystem.dbo.system;", function(recordset, error) {
+    if (error) {
         upgiSystemList = [];
-    });
-    queryString =
-        "SELECT a.erpID,a.systemID,b.reference,b.cReference " +
-        "FROM upgiSystem.dbo.websitePrivilege a " +
-        "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id;";
-    mssqlRequest.query(queryString).then(function(resultset) {
-        mssql.close();
-        console.log("網頁使用權限資料查詢成功");
-        websitePrivilegeData = resultset;
-    }).catch(function(error) {
-        console.log("網頁使用權限資料查詢失敗：" + error);
-        websitePrivilegeData = [];
-    });
+        return console.log("unable to initialize upgiSystem data: " + error);
+    }
+    upgiSystemList = recordset;
+    console.log("upgiSystem data initialized...");
 });
+database.executeQuery(
+    "SELECT a.erpID,a.systemID,b.reference,b.cReference " +
+    "FROM upgiSystem.dbo.websitePrivilege a " +
+    "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id;",
+    function(resultset, error) {
+        if (error) {
+            websitePrivilegeData = [];
+            return console.log("unable to initialize privilege data: " + error);
+        }
+        websitePrivilegeData = resultset;
+        console.log("website access privilege data initialized...");
+    });
 
+app.listen(config.serverPort); // start server
+console.log("LDAP verification system online...(" + config.serverHost + ":" + config.serverPort + ")");
+
+/*
 app.get("/", function(request, response) { // takes the user to UPGI portal page
     return response.status(200).render("portal", {
         serverHost: config.serverHost,
         serverPort: config.serverPort
     });
 });
+
 
 app.get("/status", function(request, response) { // route that provides status verification
     console.log("LDAP 認證系統運行中...(" + config.serverHost + ":" + config.serverPort + ")");
@@ -186,9 +181,6 @@ app.post("/validate", function(request, response) { //verify a token
     }
 });
 
-app.listen(config.serverPort); // start server
-console.log("LDAP 認證系統運行中...(" + config.serverHost + ":" + config.serverPort + ")");
-
 var scheduledPrivilegeTableUpdate = new CronJob("0 * * * * *", function() { // periodically updates the privilege data
     var currentDatetime = moment(moment(), "YYYY-MM-DD HH:mm:ss");
     console.log(currentDatetime.format("YYYY-MM-DD HH:mm:ss") + " 更新");
@@ -217,4 +209,4 @@ var scheduledPrivilegeTableUpdate = new CronJob("0 * * * * *", function() { // p
         });
     });
 }, null, true, "Asia/Taipei");
-scheduledPrivilegeTableUpdate.start();
+scheduledPrivilegeTableUpdate.start();*/
