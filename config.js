@@ -25,14 +25,14 @@ const smtpTransportAccount = "smtps://junior.upgi@gmail.com:cHApPPZV@smtp.gmail.
 const workingTimezone = "Asia/Taipei";
 
 module.exports = {
-    passphrase, // passphrase is specific for ldapValidation project only
-    serverHost,
-    serverPort,
     ldapServerHost, // specific for ldapValidation project
     ldapServerPort, // specific for ldapValidation project
     mssqlConfig,
+    passphrase, // passphrase is specific for ldapValidation project only
+    serverHost,
+    serverPort,
+    smtpTransportAccount,
     upgiSystemAccount,
     upgiSystemPassword,
-    smtpTransportAccount,
     workingTimezone
 };

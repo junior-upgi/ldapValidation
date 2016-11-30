@@ -1,7 +1,6 @@
 var cors = require("cors");
 var CronJob = require("cron").CronJob;
 var express = require("express");
-var app = express();
 var bodyParser = require("body-parser");
 var ldap = require("ldapjs");
 var morgan = require("morgan");
@@ -10,6 +9,7 @@ var jwt = require("jsonwebtoken");
 var config = require("./config.js");
 var database = require("./database.js");
 
+var app = express();
 app.set("view engine", "ejs");
 app.set("passphrase", config.passphrase());
 
@@ -19,14 +19,14 @@ app.use(bodyParser.urlencoded({ extended: true })) // parse application/x-www-fo
 app.use(bodyParser.json()); // parse application/json
 
 var upgiSystemList = [];
-var websitePrivilegeData = [];
+var systemPrivilegeData = [];
 database.executeQuery("SELECT * FROM upgiSystem.dbo.system;", function(recordset, error) {
     if (error) {
         upgiSystemList = [];
         return console.log("unable to initialize upgiSystem data: " + error);
     }
     upgiSystemList = recordset;
-    console.log("upgiSystem data initialized...");
+    return console.log("upgiSystem data initialized...");
 });
 database.executeQuery(
     "SELECT a.erpID,a.systemID,b.reference,b.cReference " +
@@ -34,12 +34,54 @@ database.executeQuery(
     "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id;",
     function(resultset, error) {
         if (error) {
-            websitePrivilegeData = [];
+            systemPrivilegeData = [];
             return console.log("unable to initialize privilege data: " + error);
         }
-        websitePrivilegeData = resultset;
-        console.log("website access privilege data initialized...");
+        systemPrivilegeData = resultset;
+        return console.log("website access privilege data initialized...");
     });
+
+app.post("/getToken", function(request, response) { // login routes for upgiSystems
+    console.log("validation request received...");
+    var baseDN = "dc=upgi,dc=ddns,dc=net";
+    var ldapClient = ldap.createClient({ url: config.ldapServerHost + ":" + config.ldapServerPort });
+    ldapClient.bind("uid=" + request.body.loginID + ",ou=user," + baseDN, request.body.password, function(error) {
+        if (error) {
+            console.log("user not validated: " + error);
+            return response.status(403).redirect(config.serverHost + ":" + config.serverPort + "/loginFailure");
+        }
+        ldapClient.unbind(function(error) {
+            if (error) {
+                console.log("LDAP server unbind failure: " + error);
+                return response.status(500).json({
+                    "authenticated": false,
+                    "message": "LDAP server unbind failure: " + error,
+                    "systemPrivilege": []
+                });
+            }
+            console.log("user validated...");
+            // continue to check if user has rights to access the website of the system selected
+            database.executeQuery("SELECT a.systemID,b.reference " +
+                "FROM upgiSystem.dbo.websitePrivilege a " +
+                "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id " +
+                "WHERE erpID='" + request.body.loginID + "';",
+                function(recordset, error) {
+                    if (error) {
+                        console.log("unable to query system access rights data: " + error);
+                        return response.status(500).json({
+                            "authenticated": false,
+                            "message": "unable to query system access rights data: " + error,
+                            "systemPrivilege": []
+                        });
+                    }
+                    console.log("user authenticated...");
+                    var payload = { loginID: request.body.loginID };
+                    var token = jwt.sign(payload, app.get("passphrase"), { expiresIn: 3600 });
+                    return response.status(200).send(token).end();
+                });
+        });
+    });
+});
 
 app.listen(config.serverPort); // start server
 console.log("LDAP verification system online...(" + config.serverHost + ":" + config.serverPort + ")");
@@ -62,47 +104,6 @@ app.get("/loginFailure", function(request, response) { // serve login failure pa
     return response.render("loginFailure", {
         serverHost: config.serverHost,
         serverPort: config.serverPort
-    });
-});
-
-app.post("/getToken", function(request, response) { // login routes for upgiSystems
-    console.log("收到驗證要求...");
-    var baseDN = "dc=upgi,dc=ddns,dc=net";
-    var ldapClient = ldap.createClient({ url: config.ldapServerHost + ":" + config.ldapServerPort });
-    ldapClient.bind("uid=" + request.body.loginID + ",ou=user," + baseDN, request.body.password, function(error) {
-        if (error) {
-            console.log("帳號驗證失敗：" + error);
-            return response.status(403).redirect(config.serverHost + ":" + config.serverPort + "/loginFailure");
-        }
-        ldapClient.unbind(function(error) {
-            if (error) {
-                console.log("LDAP 伺服器分離失敗：" + error);
-                return response.status(500).json({
-                    "authenticated": false,
-                    "message": "LDAP 伺服器分離失敗：" + error
-                });
-            }
-            console.log("帳號驗證成功...");
-            mssql.connect(mssqlConfig).then(function() { // continue to check if user has rights to access the website of the system selected
-                var queryString =
-                    "SELECT a.systemID,b.reference " +
-                    "FROM upgiSystem.dbo.websitePrivilege a " +
-                    "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id " +
-                    "WHERE erpID='" +
-                    request.body.loginID + "';"
-                var mssqlRequest = new mssql.Request();
-                mssqlRequest.query(queryString).then(function(resultset) {
-                    mssql.close();
-                    console.log("使用者系統權限認證完畢");
-                    var payload = { loginID: request.body.loginID };
-                    var token = jwt.sign(payload, app.get("passphrase"), { expiresIn: 3600 });
-                    return response.status(200).send(token).end();
-                }).catch(function(error) {
-                    console.log("網頁使用權限資料查詢失敗：" + error);
-                    return response.status(500).send("").end();
-                });
-            });
-        });
     });
 });
 
