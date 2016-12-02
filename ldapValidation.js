@@ -30,7 +30,7 @@ database.executeQuery("SELECT * FROM upgiSystem.dbo.system;", function(recordset
 });
 database.executeQuery(
     "SELECT a.erpID,a.systemID,b.reference,b.cReference " +
-    "FROM upgiSystem.dbo.websitePrivilege a " +
+    "FROM upgiSystem.dbo.systemPrivilege a " +
     "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id;",
     function(resultset, error) {
         if (error) {
@@ -38,7 +38,7 @@ database.executeQuery(
             return console.log("unable to initialize privilege data: " + error);
         }
         systemPrivilegeData = resultset;
-        return console.log("website access privilege data initialized...");
+        return console.log("system access privilege data initialized...");
     });
 
 app.post("/getToken", function(request, response) { // login routes for upgiSystems
@@ -60,9 +60,9 @@ app.post("/getToken", function(request, response) { // login routes for upgiSyst
                 });
             }
             console.log("user validated...");
-            // continue to check if user has rights to access the website of the system selected
+            // continue to check if user has rights to access the  system selected
             database.executeQuery("SELECT a.systemID,b.reference " +
-                "FROM upgiSystem.dbo.websitePrivilege a " +
+                "FROM upgiSystem.dbo.systemPrivilege a " +
                 "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id " +
                 "WHERE erpID='" + request.body.loginID + "';",
                 function(recordset, error) {
@@ -133,10 +133,10 @@ app.route("/login") // login related routes
                     });
                 }
                 console.log("帳號驗證成功...");
-                mssql.connect(mssqlConfig).then(function() { // continue to check if user has rights to access the website of the system selected
+                mssql.connect(mssqlConfig).then(function() { // continue to check if user has rights to access the system selected
                     var queryString =
                         "SELECT a.systemID,b.reference " +
-                        "FROM upgiSystem.dbo.websitePrivilege a " +
+                        "FROM upgiSystem.dbo.systemPrivilege a " +
                         "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id " +
                         "WHERE erpID='" +
                         request.body.loginID + "';"
@@ -198,15 +198,15 @@ var scheduledPrivilegeTableUpdate = new CronJob("0 * * * * *", function() { // p
         });
         queryString =
             "SELECT a.erpID,a.systemID,b.reference,b.cReference " +
-            "FROM upgiSystem.dbo.websitePrivilege a " +
+            "FROM upgiSystem.dbo.systemPrivilege a " +
             "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id;";
         mssqlRequest.query(queryString).then(function(resultset) {
             mssql.close();
             console.log("網頁使用權限資料查詢成功");
-            websitePrivilegeData = resultset;
+            systemPrivilegeData = resultset;
         }).catch(function(error) {
             console.log("網頁使用權限資料查詢失敗：" + error);
-            websitePrivilegeData = [];
+            systemPrivilegeData = [];
         });
     });
 }, null, true, "Asia/Taipei");
