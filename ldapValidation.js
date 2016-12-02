@@ -1,11 +1,13 @@
+var bodyParser = require("body-parser");
 var cors = require("cors");
 var CronJob = require("cron").CronJob;
 var express = require("express");
-var bodyParser = require("body-parser");
-var ldap = require("ldapjs");
-var morgan = require("morgan");
-var moment = require("moment-timezone");
+var httpRequest = require("request-promise");
 var jwt = require("jsonwebtoken");
+var ldap = require("ldapjs");
+var moment = require("moment-timezone");
+var morgan = require("morgan");
+
 var config = require("./config.js");
 var database = require("./database.js");
 
@@ -26,10 +28,11 @@ database.executeQuery("SELECT * FROM upgiSystem.dbo.system;", function(recordset
         return console.log("unable to initialize upgiSystem data: " + error);
     }
     upgiSystemList = recordset;
+    //console.log(upgiSystemList);
     return console.log("upgiSystem data initialized...");
 });
 database.executeQuery(
-    "SELECT a.erpID,a.systemID,b.reference,b.cReference " +
+    "SELECT a.erpID AS loginID,a.systemID,b.reference,b.cReference " +
     "FROM upgiSystem.dbo.systemPrivilege a " +
     "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id;",
     function(resultset, error) {
@@ -38,53 +41,82 @@ database.executeQuery(
             return console.log("unable to initialize privilege data: " + error);
         }
         systemPrivilegeData = resultset;
+        //console.log(systemPrivilegeData);
         return console.log("system access privilege data initialized...");
     });
 
-app.post("/getToken", function(request, response) { // login routes for upgiSystems
-    console.log("validation request received...");
+app.get("/ldap/status", function(request, response) { // provides status of verification system
+    console.log("/ldap/status");
+    return response.status(200).json({ status: "online" });
+});
+
+app.post("/ldap/generateToken", function(request, response) { // verify against LDAP server and grant access token
+    console.log("/ldap/generateToken");
     var baseDN = "dc=upgi,dc=ddns,dc=net";
-    var ldapClient = ldap.createClient({ url: config.ldapServerHost + ":" + config.ldapServerPort });
+    var ldapClient = ldap.createClient({ url: config.ldapServerUrl });
     ldapClient.bind("uid=" + request.body.loginID + ",ou=user," + baseDN, request.body.password, function(error) {
         if (error) {
             console.log("user not validated: " + error);
-            return response.status(403).redirect(config.serverHost + ":" + config.serverPort + "/loginFailure");
+            return response.status(403).json({ token: null }).end();
         }
         ldapClient.unbind(function(error) {
             if (error) {
                 console.log("LDAP server unbind failure: " + error);
-                return response.status(500).json({
-                    "authenticated": false,
-                    "message": "LDAP server unbind failure: " + error,
-                    "systemPrivilege": []
-                });
+                return response.status(500).json({ token: null }).end();
             }
-            console.log("user validated...");
-            // continue to check if user has rights to access the  system selected
-            database.executeQuery("SELECT a.systemID,b.reference " +
-                "FROM upgiSystem.dbo.systemPrivilege a " +
-                "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id " +
-                "WHERE erpID='" + request.body.loginID + "';",
-                function(recordset, error) {
-                    if (error) {
-                        console.log("unable to query system access rights data: " + error);
-                        return response.status(500).json({
-                            "authenticated": false,
-                            "message": "unable to query system access rights data: " + error,
-                            "systemPrivilege": []
-                        });
-                    }
-                    console.log("user authenticated...");
-                    var payload = { loginID: request.body.loginID };
-                    var token = jwt.sign(payload, app.get("passphrase"), { expiresIn: 3600 });
-                    return response.status(200).send(token).end();
-                });
+            console.log("user credential authenticated...");
+            var payload = { loginID: request.body.loginID };
+            var token = jwt.sign(payload, app.get("passphrase"), { expiresIn: 3600 });
+            return response.status(200).json({ token: token }).end();
         });
     });
 });
 
+app.post("/ldap/verifySystemPrivilege", function(request, response) { // verify user against existing token and system
+    console.log("/ldap/verifySystemPrivilege");
+    var accessToken = (request.body && request.body.accessToken) ||
+        (request.query && request.query.accessToken) ||
+        request.headers['x-access-token'];
+    if (accessToken) { // decode the token from request, verifies secret and checks exp
+        jwt.verify(accessToken, app.get("passphrase"), function(error, decodedToken) {
+            if (error) {
+                console.log("token validation failure: " + error.message);
+                return response.status(403).json({ authorized: false }).end();
+            }
+            console.log("token validated, proceed to verify system privilege");
+            systemPrivilegeData.forEach(function(systemPrivilegeRecord) {
+                if (systemPrivilegeRecord.loginID === request.body.loginID) {
+                    if (systemPrivilegeRecord.systemID === request.body.systemID) {
+                        console.log("authenticated user with access privilege");
+                        return response.status(200).json({ authorized: true }).end();
+                    } else {
+                        console.log("authenticated user without proper access privilege");
+                        return response.status(200).json({ authorized: true }).end();
+                    }
+                }
+            });
+            console.log("CRITICAL ERROR: attemp to login with valid token from unknown source");
+            httpRequest({ // broadcast alert when error encountered
+                method: "post",
+                uri: "http://upgi.ddns.net:9001/broadcast",
+                form: {
+                    chat_id: 241630569,
+                    text: "CRITICAL ERROR: attemp to login with valid token from unknown source",
+                    token: "287236637:AAHSuMHmaZJ2Vm9gXf3NeSlInrgr-XXzoRo"
+                }
+            }).catch(function(error) {
+                return response.status(403).json({ authorized: false }).end();
+            });
+            return response.status(403).json({ authorized: false }).end();
+        });
+    } else { // if there is no token, return an error
+        console.log("token doesn't exist");
+        return response.status(403).json({ authorized: false }).end();
+    }
+});
+
 app.listen(config.serverPort); // start server
-console.log("LDAP verification system online...(" + config.serverHost + ":" + config.serverPort + ")");
+console.log("LDAP verification system online...(" + config.serverUrl + ")");
 
 /*
 app.get("/", function(request, response) { // takes the user to UPGI portal page
@@ -94,11 +126,6 @@ app.get("/", function(request, response) { // takes the user to UPGI portal page
     });
 });
 
-
-app.get("/status", function(request, response) { // route that provides status verification
-    console.log("LDAP 認證系統運行中...(" + config.serverHost + ":" + config.serverPort + ")");
-    return response.status(200).json('{"status":"online"}');
-});
 
 app.get("/loginFailure", function(request, response) { // serve login failure page
     return response.render("loginFailure", {
@@ -180,6 +207,48 @@ app.post("/validate", function(request, response) { //verify a token
         console.log("token 不存在");
         return response.status(403).send({ authorized: false, message: "token 不存在" });
     }
+});
+
+app.post("/getToken", function(request, response) { // validation
+    console.log("validation request received...");
+    var baseDN = "dc=upgi,dc=ddns,dc=net";
+    var ldapClient = ldap.createClient({ url: config.ldapServerHost + ":" + config.ldapServerPort });
+    ldapClient.bind("uid=" + request.body.loginID + ",ou=user," + baseDN, request.body.password, function(error) {
+        if (error) {
+            console.log("user not validated: " + error);
+            return response.status(403).redirect(config.serverHost + ":" + config.serverPort + "/loginFailure");
+        }
+        ldapClient.unbind(function(error) {
+            if (error) {
+                console.log("LDAP server unbind failure: " + error);
+                return response.status(500).json({
+                    "authenticated": false,
+                    "message": "LDAP server unbind failure: " + error,
+                    "systemPrivilege": []
+                });
+            }
+            console.log("user validated...");
+            // continue to check if user has rights to access the system selected
+            database.executeQuery("SELECT a.systemID,b.reference " +
+                "FROM upgiSystem.dbo.systemPrivilege a " +
+                "INNER JOIN upgiSystem.dbo.system b ON a.systemID=b.id " +
+                "WHERE erpID='" + request.body.loginID + "';",
+                function(recordset, error) {
+                    if (error) {
+                        console.log("unable to query system access rights data: " + error);
+                        return response.status(500).json({
+                            "authenticated": false,
+                            "message": "unable to query system access rights data: " + error,
+                            "systemPrivilege": []
+                        });
+                    }
+                    console.log("user authenticated...");
+                    var payload = { loginID: request.body.loginID };
+                    var token = jwt.sign(payload, app.get("passphrase"), { expiresIn: 3600 });
+                    return response.status(200).send(token).end();
+                });
+        });
+    });
 });
 
 var scheduledPrivilegeTableUpdate = new CronJob("0 * * * * *", function() { // periodically updates the privilege data
