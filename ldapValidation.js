@@ -84,6 +84,7 @@ app.post("/ldap/verifySystemPrivilege", function(request, response) { // verify 
                 return response.status(403).json({ authorized: false }).end();
             }
             console.log("token validated, proceed to verify system privilege");
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
             systemPrivilegeData.forEach(function(systemPrivilegeRecord) {
                 if (systemPrivilegeRecord.loginID === request.body.loginID) {
                     if (systemPrivilegeRecord.systemID === request.body.systemID) {
