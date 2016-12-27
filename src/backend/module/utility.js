@@ -8,7 +8,7 @@ const serverConfig = require('./serverConfig.js');
 const telegramUser = require('../model/telegramUser.js');
 const telegramBot = require('../model/telegramBot.js');
 
-let informStatus = new CronJob('0 6 17 * * *', function() {
+let informStatus = new CronJob('0 0 */3 * * *', function() {
     let currentTime = moment(moment(), 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
     let message = `${currentTime} ldapServer reporting`;
     httpRequest({
