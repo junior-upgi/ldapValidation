@@ -1,0 +1,10 @@
+{
+    "beautify.language": {
+        "js": {
+            "type": [],
+            "filename": [".jshintrc", ".jsbeautify"]
+        },
+        "css": ["css", "scss"],
+        "html": ["htm", "html", "handlebars"]
+    }
+}

@@ -1,0 +1,58 @@
+{
+    "preset": "google",
+    "fileExtensions": [
+        ".js"
+    ],
+    "extract": [
+        "*.html"
+    ],
+    "excludeFiles": [
+        "node_modules/**",
+        "bower_components/**",
+        "public/**",
+        "build/**"
+    ],
+    "maxErrors": 10,
+    "disallowSpacesInsideArrayBrackets": false,
+    "disallowSpacesInsideObjectBrackets": false,
+    "disallowSpacesInsideParentheses": true,
+    "maximumLineLength": null,
+    "requireCamelCaseOrUpperCaseIdentifiers": false,
+    "requireCurlyBraces": [
+        "if",
+        "else",
+        "for",
+        "while",
+        "do",
+        "try",
+        "catch"
+    ],
+    "requireSpaceAfterBinaryOperators": [
+        "=",
+        ",",
+        "+",
+        "-",
+        "/",
+        "*",
+        "==",
+        "===",
+        "!=",
+        "!=="
+    ],
+    "requireSpaceBeforeBinaryOperators": [
+        "=",
+        "+",
+        "-",
+        "/",
+        "*",
+        "==",
+        "===",
+        "!=",
+        "!=="
+    ],
+    "requireOperatorBeforeLineBreak": true,
+    "requireSpaceBeforeBlockStatements": false,
+    "requireSpacesInFunctionExpression": null,
+    "validateIndentation": 4,
+    "validateQuoteMarks": "'"
+}

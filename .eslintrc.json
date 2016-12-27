@@ -1,0 +1,111 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "eslint-config-google"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "evn": {
+        "browser": true,
+        "node": true,
+        "commonjs": true,
+        "jquery": true,
+        "es6": true
+    },
+    "plugins": [
+        "html"
+    ],
+    "rules": {
+        "array-bracket-spacing": [
+            "error",
+            "never", {
+                "singleValue": false,
+                "arraysInArrays": false,
+                "objectsInArrays": false
+            }
+        ],
+        "brace-style": [
+            "error",
+            "1tbs", {
+                "allowSingleLine": true
+            }
+        ],
+        "camelcase": "off",
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "computed-property-spacing": [
+            "error",
+            "never"
+        ],
+        "eqeqeq": [
+            "warn",
+            "always"
+        ],
+        "guard-for-in": "off",
+        "indent": [
+            "error",
+            4, {
+                "SwitchCase": 1,
+                "ArrayExpression": "first",
+                "CallExpression": {
+                    "arguments": "first"
+                },
+                "FunctionDeclaration": {
+                    "body": 1,
+                    "parameters": 1
+                },
+                "FunctionExpression": {
+                    "body": 1,
+                    "parameters": 1
+                },
+                "MemberExpression": 1,
+                "ObjectExpression": "first",
+                "VariableDeclarator": {
+                    "var": 2,
+                    "let": 2,
+                    "const": 4
+                }
+            }
+        ],
+        "max-len": "off",
+        "no-console": "off",
+        "no-invalid-this": "off",
+        "no-undef": "off",
+        "object-curly-spacing": [
+            "error",
+            "always", {
+                "arraysInObjects": true,
+                "objectsInObjects": true
+            }
+        ],
+        "quotes": [
+            "warn",
+            "single"
+        ],
+        "require-jsdoc": "off",
+        "semi": [
+            "error",
+            "always"
+        ],
+        "block-spacing": ["warn", "always"],
+        "space-before-blocks": [
+            "error",
+            "always"
+        ],
+        "space-before-function-paren": [
+            "error",
+            "never"
+        ],
+        "space-infix-ops": [
+            "error"
+        ],
+        "strict": [
+            "error",
+            "safe"
+        ]
+    }
+}

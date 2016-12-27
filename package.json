@@ -1,31 +1,81 @@
 {
-    "name": "ldap-validation",
-    "version": "1.0.0",
-    "description": "service to validate request against a LDAP server and returns JSON data accordingly",
-    "main": "ldapValidation.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/junior-upgi/ldapValidation.git"
-    },
-    "author": "Chia-Yu Tsai",
-    "license": "ISC",
-    "dependencies": {
-        "body-parser": "^1.15.2",
-        "cors": "^2.8.1",
-        "cron": "^1.1.1",
-        "ejs": "^2.5.2",
-        "express": "^4.14.0",
-        "jsonwebtoken": "^7.1.9",
-        "ldapjs": "^1.0.1",
-        "moment-timezone": "^0.5.9",
-        "morgan": "^1.7.0",
-        "mssql": "^3.3.0"
-    },
-    "devDependencies": {
-        "bootlint": "^0.14.2",
-        "eslint": "^3.10.2"
-    }
+  "name": "ldap-validation",
+  "version": "1.0.0",
+  "description": "service to validate request against a LDAP server and returns JSON data accordingly",
+  "main": "ldapValidation.js",
+  "scripts": {
+    "start": "gulp startServer"
+  },
+  "author": "Chia-Yu Tsai",
+  "dependencies": {
+    "babel-standalone": "^6.19.0",
+    "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
+    "chart.js": "^2.4.0",
+    "clone": "^2.1.0",
+    "cors": "^2.8.1",
+    "cron": "^1.1.1",
+    "express": "^4.14.0",
+    "handlebars": "^4.0.6",
+    "jquery": "^3.1.1",
+    "json2xls": "^0.1.2",
+    "jsonwebtoken": "^7.2.1",
+    "ldapjs": "^1.0.1",
+    "moment-timezone": "^0.5.10",
+    "mssql": "^3.3.0",
+    "multer": "^1.2.1",
+    "nodemailer": "^2.7.0",
+    "numeral": "^2.0.1",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1",
+    "serve-favicon": "^2.3.2",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.18.5",
+    "browserify": "^13.1.1",
+    "del": "^2.2.2",
+    "eslint": "^3.12.2",
+    "eslint-config-google": "^0.7.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-html": "^1.7.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-jscs": "^4.0.0",
+    "gulp-jscs-stylish": "^1.4.0",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-print": "^2.0.1",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-task-listing": "^1.0.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "jscs": "^3.0.7",
+    "morgan": "^1.7.0",
+    "npm-run-all": "^3.1.2",
+    "nsp": "^2.6.2",
+    "require-dir": "^0.3.1",
+    "uglifyify": "^3.0.4",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.8.0",
+    "yargs": "^6.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junior-upgi/ldapValidation.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/junior-upgi/ldapValidation/issues"
+  },
+  "homepage": "https://github.com/junior-upgi/ldapValidation#readme"
 }
