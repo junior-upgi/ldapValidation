@@ -1,6 +1,6 @@
-let telegramChat = require('./telegramChat.js');
+const telegramChat = require('./telegramChat.js');
 
-let list = [{
+const list = [{
     id: 241630569,
     user_name: 'junior_upgi',
     first_name: '佳佑',

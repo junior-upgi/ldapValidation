@@ -10,7 +10,7 @@ const telegramBot = require('../model/telegramBot.js');
 
 let statusUpdate = new CronJob('0 0 */3 * * *', function() {
     let currentTime = moment(moment(), 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm:ss');
-    let message = `${currentTime} ldapServer reporting`;
+    let message = `${currentTime} ${serverConfig.systemReference} reporting`;
     httpRequest({
         method: 'post',
         uri: serverConfig.broadcastAPIUrl,

@@ -1,4 +1,4 @@
-let list = [{
+const list = [{
     id: -150874076,
     title: '業務群組',
     type: 'group'
