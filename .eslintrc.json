@@ -3,6 +3,7 @@
         "eslint:recommended",
         "eslint-config-google"
     ],
+    "root": true,
     "parser": "babel-eslint",
     "parserOptions": {
         "sourceType": "module"
