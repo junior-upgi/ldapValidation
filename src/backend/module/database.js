@@ -1,6 +1,6 @@
-let mssql = require('mssql');
-let serverConfig = require('./serverConfig.js');
-let utility = require('./utility.js');
+const mssql = require('mssql');
+const serverConfig = require('./serverConfig.js');
+const utility = require('./utility.js');
 
 module.exports = {
     executeQuery: function(queryString, callback) {

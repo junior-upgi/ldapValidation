@@ -2,7 +2,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 // const CronJob = require('cron').CronJob;
 const express = require('express');
-// const moment = require('moment-timezone');
+const moment = require('moment-timezone');
 const morgan = require('morgan');
 // const httpRequest = require('request-promise');
 const favicon = require('serve-favicon');
@@ -25,7 +25,8 @@ utility.statusUpdate.start();
 app.get('/status', function(request, response) { // serve system status information
     return response.status(200).json({
         system: serverConfig.systemReference,
-        status: 'online'
+        status: 'online',
+        timestamp: moment(moment(), 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm:ss')
     });
 });
 
