@@ -11,14 +11,16 @@ const browserify = require('browserify');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 
-gulp.task('transpile', function() {
+require('./lint.js');
+
+gulp.task('transpile', ['lint'], function() {
     utility.log('ES6 code transpile, bundling and uglify...');
     let bundledScript = 'bundle.js';
     let entryPoint = ['./src/frontend/js/entry.js'];
     let destDir = './public/js';
     return browserify(entryPoint, {
             debug: true
-    }).transform(babelify, {
+        }).transform(babelify, {
             presets: ['es2015'],
             sourceMaps: true
         }).bundle()

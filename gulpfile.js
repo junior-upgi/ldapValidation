@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const requireDir = require('require-dir');
 
-// const browserSync = require('browser-sync');
+const browserSync = require('browser-sync');
 const $ = require('gulp-load-plugins')({
     lazy: true,
     camelize: true
@@ -14,31 +14,7 @@ requireDir('./gulpTask');
 
 gulp.task('help', $.taskListing);
 
-gulp.task('scriptTransfer', function() {
-    let source = './src/frontend/js/**/*.js';
-    let destDir = './public/js';
-    return gulp.src(source).pipe(gulp.dest(destDir));
-});
-
-gulp.task('staticHtml', function() {
-    utility.log('processing static HTML files');
-    let destDir = './public';
-    return gulp.src('./src/frontend/*.html').pipe(gulp.dest(destDir));
-});
-
-gulp.task('staticView', function() {
-    utility.log('processing static HTML files');
-    let destDir = './public/view';
-    return gulp.src('./src/frontend/view/**/*.html').pipe(gulp.dest(destDir));
-});
-
-gulp.task('staticCss', function() {
-    utility.log('processing static CSS files');
-    let destDir = './public/css';
-    return gulp.src('./src/frontend/css/*.css').pipe(gulp.dest(destDir));
-});
-
-gulp.task('staticFrontendFiles', ['staticCss', 'processTemplate', 'staticView', 'staticHtml', 'favicon'], function() {
+gulp.task('staticFrontendFiles', ['css', 'template', 'partialHtml', 'html', 'favicon'], function() {
     return;
 });
 
@@ -51,7 +27,7 @@ gulp.task('startWatcher', ['staticFrontendFiles', 'transpile'], function() {
     gulp.watch(watchList.staticFrontendFileList, ['staticFrontendFiles']);
 });
 
-gulp.task('startServer', ['preRebuild', 'lint', 'buildBackend', 'buildFrontend'], function() {
+gulp.task('startServer', ['preRebuild', 'transpile', 'buildBackend', 'buildFrontend'], function() {
     let nodemonOption = {
         script: './build/server.js',
         delayTime: 1,
@@ -60,26 +36,17 @@ gulp.task('startServer', ['preRebuild', 'lint', 'buildBackend', 'buildFrontend']
             'NODE_ENV': serverConfig.development ? 'development' : 'production'
         },
         verbose: false,
-        ext: 'html js',
+        ext: 'html js mustache',
         watch: ['./src/backend/'],
-        tasks: ['preRebuild', 'lint', 'buildBackend', 'buildFrontend']
+        tasks: ['preRebuild', 'transpile', 'buildBackend', 'buildFrontend']
     };
     return $.nodemon(nodemonOption)
         .on('start', function() {
             utility.log('*** server started on: ' + serverConfig.serverUrl);
-            // startBrowserSync();
         })
         .on('restart', function(event) {
             utility.log('*** server restarted and operating on: ' + serverConfig.serverUrl);
             utility.log('files triggered the restart:\n' + event);
-            /*
-            setTimeout(function() {
-                browserSync.notify('伺服器重新啟動，頁面即將同步重置...');
-                browserSync.reload({
-                    stream: false
-                });
-            }, 5000);
-            */
         })
         .on('crash', function() {
             utility.log('*** server had crashed...');
@@ -89,7 +56,42 @@ gulp.task('startServer', ['preRebuild', 'lint', 'buildBackend', 'buildFrontend']
         });
 });
 
-/*
+gulp.task('startDevelopmentServer', ['preRebuild', 'transpile', 'buildBackend', 'buildFrontend'], function() {
+    let nodemonOption = {
+        script: './build/server.js',
+        delayTime: 1,
+        env: {
+            'PORT': serverConfig.serverPort,
+            'NODE_ENV': serverConfig.development ? 'development' : 'production'
+        },
+        verbose: false,
+        ext: 'html js mustache',
+        watch: ['./src/backend/'],
+        tasks: ['preRebuild', 'transpile', 'buildBackend', 'buildFrontend']
+    };
+    return $.nodemon(nodemonOption)
+        .on('start', function() {
+            utility.log('*** server started on: ' + serverConfig.serverUrl);
+            startBrowserSync();
+        })
+        .on('restart', function(event) {
+            utility.log('*** server restarted and operating on: ' + serverConfig.serverUrl);
+            utility.log('files triggered the restart:\n' + event);
+            setTimeout(function() {
+                browserSync.notify('伺服器重新啟動，頁面即將同步重置...');
+                browserSync.reload({
+                    stream: false
+                });
+            }, 5000);
+        })
+        .on('crash', function() {
+            utility.log('*** server had crashed...');
+        })
+        .on('shutdown', function() {
+            utility.log('*** server had been shutdown...');
+        });
+});
+
 function startBrowserSync() {
     if (browserSync.active) {
         return;
@@ -112,6 +114,5 @@ function startBrowserSync() {
         reloadDelay: 1000
     };
     browserSync(option);
-    log('start browserSync on port: ' + serverConfig.serverPort);
+    utility.log('start browserSync on port: ' + serverConfig.serverPort);
 }
-*/

@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json()); // parse application/json
 app.use(favicon(__dirname + '/../public/upgiLogo.png')); // middleware to serve favicon
 
-utility.informStatus.start();
+utility.statusUpdate.start();
 
 app.get('/status', function(request, response) { // serve system status information
     return response.status(200).json({
