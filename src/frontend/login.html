@@ -6,10 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     <title>登入帳號驗證</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="./bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./bower_components/moment/min/moment.min.js"></script>
+    <script src="./bower_components/moment-timezone/builds/moment-timezone-with-data.min.js"></script>
+    <script src="./bower_components/numeral/min/numeral.min.js"></script>
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./js/login.bundle.js"></script>
 </head>
 
 <body>
@@ -20,9 +27,9 @@
             </div>
         </div>
         <div class="row">
-            <form id="loginForm" name="loginForm" class="form-horizontal" action="<%= serverHost %>:<%= serverPort %>/login" method="post" enctype="application/x-www-form-urlencoded">
+            <form id="loginForm" name="loginForm" class="form-horizontal" action="" method="" enctype="">
                 <div class="form-group">
-                    <label for="account" class="col-xs-3 col-lg-2 control-label text-right">員工編號</label>
+                    <label for="loginID" class="col-xs-3 col-lg-2 control-label text-right">員工編號</label>
                     <div class="col-xs-8 col-lg-2">
                         <input id="loginID" name="loginID" type="text" class="form-control" placeholder="員工編號" required />
                     </div>
@@ -36,11 +43,8 @@
                 <div class="form-group">
                     <label for="systemID" class="col-xs-3 col-lg-2 control-label text-right">系統名稱</label>
                     <div class="col-xs-8 col-lg-2">
-                        <select id="systemID" name="systemID" class="form-control" form="loginForm">
+                        <select id="systemID" name="systemID" class="form-control" form="loginForm" required>
                             <option disabled selected value></option>
-                            <% upgiSystemList.forEach(function(upgiSystem){ %>
-                                <option value="<%= upgiSystem.id %>"><%= upgiSystem.cReference %></option>
-                            <% }); %>
                         </select>
                     </div>
                 </div>
@@ -52,6 +56,8 @@
                 </div>
             </form>
         </div>
+        <br>
+        <div id="statusMessage"></div>
     </div>
 </body>
 

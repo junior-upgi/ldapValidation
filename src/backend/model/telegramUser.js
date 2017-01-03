@@ -131,8 +131,8 @@ const list = [{
 }, {
     id: 225829917,
     username: 'UPGI_ChungChou',
-    first_name: 'Lin',
-    last_name: 'Chung Chou',
+    first_name: '川洲',
+    last_name: '林',
     status: ['user'],
     joinedGroupList: [],
     upgEmployeeID: '11020002'
@@ -185,6 +185,7 @@ const list = [{
     first_name: '游',
     last_name: '閔楠',
     status: ['user'],
+    email: 'jackyu@upgi.com.tw',
     joinedGroupList: [],
     upgEmployeeID: '07120002'
 }, {
@@ -206,8 +207,8 @@ const list = [{
 }, {
     id: 267702707,
     username: 'HouseChen',
-    first_name: 'Wayne',
-    last_name: 'Chen',
+    first_name: '建文',
+    last_name: '陳',
     status: ['user'],
     joinedGroupList: [],
     upgEmployeeID: '07040001'
@@ -237,7 +238,7 @@ const list = [{
     joinedGroupList: [],
     upgEmployeeID: '14060007'
 }, {
-    id: undefined,
+    id: 298863516,
     username: 'RDruby',
     first_name: '宜如',
     last_name: '林',
@@ -263,6 +264,58 @@ const list = [{
     email: 'emma@upgi.com.tw',
     joinedGroupList: [],
     upgEmployeeID: '16060001'
+}, {
+    id: 177378529,
+    username: 'UPGI_JAMES',
+    first_name: '宗裕',
+    last_name: '潘',
+    status: ['user'],
+    email: 'james@upgi.com.tw',
+    joinedGroupList: [],
+    upgEmployeeID: '05020004'
+}, {
+    id: 293454053,
+    username: 'MasonHuang1',
+    first_name: '正修',
+    last_name: '黃',
+    status: ['user'],
+    joinedGroupList: [],
+    upgEmployeeID: '09120004'
+}, {
+    id: 233796663,
+    username: 'Jungnan',
+    first_name: '榕南',
+    last_name: '林',
+    status: ['user'],
+    joinedGroupList: [],
+    upgEmployeeID: '1502A001'
+}, {
+    id: 283620671,
+    username: 'upgi_morris',
+    first_name: '峻旗',
+    last_name: '許',
+    status: ['user'],
+    email: 'morris@upgi.com.tw',
+    joinedGroupList: [],
+    upgEmployeeID: '98080003'
+}, {
+    id: 300751359,
+    username: 'Abcdefghdvdghs',
+    first_name: '雄峰',
+    last_name: '蔡',
+    status: ['user'],
+    email: null,
+    joinedGroupList: [],
+    upgEmployeeID: '99030007'
+}, {
+    id: 293770218,
+    username: 'upgiken',
+    first_name: '可慶',
+    last_name: '許',
+    status: ['user'],
+    email: 'ken@upgi.com.tw',
+    joinedGroupList: [],
+    upgEmployeeID: '99043017'
 }];
 
 function getUserID(userName) {
@@ -275,7 +328,18 @@ function getUserID(userName) {
     return chat_id;
 }
 
+function getUserName(chat_id) {
+    let userName;
+    list.forEach(function(userObject) {
+        if (userObject.id === chat_id) {
+            userName = userObject.last_name + userObject.first_name;
+        }
+    });
+    return userName;
+}
+
 module.exports = {
     getUserID: getUserID,
+    getUserName: getUserName,
     list: list
 };

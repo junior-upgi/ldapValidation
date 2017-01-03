@@ -1,5 +1,18 @@
-const serverHost = 'http://upgi.ddns.net'; // production
-// const serverHost = 'http://127.0.0.1'; // development
-const serverPort = '9004';
+const systemReference = 'ldapValidation';
 
-export const serverUrl = serverHost + ':' + serverPort;
+const development = true;
+
+function serverHost() {
+    if (development === true) {
+        return 'http://127.0.0.1'; // development
+    } else {
+        return 'http://upgi.ddns.net'; // production
+    }
+}
+const serverPort = '9005';
+
+module.exports = {
+    serverUrl: `${serverHost()}:${serverPort}/${systemReference}`,
+    systemReference: systemReference,
+    loginUrl: `${serverHost()}:${serverPort}/${systemReference}/login`
+};

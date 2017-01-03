@@ -4,7 +4,7 @@
   "description": "service to validate request against a LDAP server and returns JSON data accordingly",
   "main": "ldapValidation.js",
   "scripts": {
-    "start": "gulp startServer"
+    "start": "gulp startDevelopmentServer"
   },
   "author": "Chia-Yu Tsai",
   "dependencies": {
@@ -54,6 +54,7 @@
     "gulp-load-plugins": "^1.4.0",
     "gulp-nodemon": "^2.2.1",
     "gulp-print": "^2.0.1",
+    "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.9.1",
     "gulp-task-listing": "^1.0.1",
     "gulp-uglify": "^2.0.0",

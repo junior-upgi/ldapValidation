@@ -14,20 +14,7 @@ requireDir('./gulpTask');
 
 gulp.task('help', $.taskListing);
 
-gulp.task('staticFrontendFiles', ['css', 'template', 'partialHtml', 'html', 'favicon'], function() {
-    return;
-});
-
-gulp.task('startWatcher', ['staticFrontendFiles', 'transpile'], function() {
-    let watchList = {
-        frontendFileList: ['./src/frontend/**/*.js'],
-        staticFrontendFileList: ['./src/frontend/**/*.html', './src/frontend/**/*.css']
-    };
-    gulp.watch(watchList.frontendFileList, ['transpile']);
-    gulp.watch(watchList.staticFrontendFileList, ['staticFrontendFiles']);
-});
-
-gulp.task('startServer', ['preRebuild', 'transpile', 'buildBackend', 'buildFrontend'], function() {
+gulp.task('startServer', ['preRebuild', 'lint', 'buildBackend'], function() {
     let nodemonOption = {
         script: './build/server.js',
         delayTime: 1,
@@ -38,7 +25,7 @@ gulp.task('startServer', ['preRebuild', 'transpile', 'buildBackend', 'buildFront
         verbose: false,
         ext: 'html js mustache',
         watch: ['./src/backend/'],
-        tasks: ['preRebuild', 'transpile', 'buildBackend', 'buildFrontend']
+        tasks: ['preRebuild', 'lint', 'buildBackend']
     };
     return $.nodemon(nodemonOption)
         .on('start', function() {
@@ -56,7 +43,32 @@ gulp.task('startServer', ['preRebuild', 'transpile', 'buildBackend', 'buildFront
         });
 });
 
-gulp.task('startDevelopmentServer', ['preRebuild', 'transpile', 'buildBackend', 'buildFrontend'], function() {
+gulp.task('frontendMonitor', function() {
+    let watchList = {
+        scriptList: ['./src/frontend/**/*.js'],
+        staticFileList: ['./src/frontend/**/*.html', './src/frontend/**/*.css']
+    };
+    gulp.watch(watchList.scriptList, ['transpile']).on('change', function(event) {
+        setTimeout(function() {
+            utility.log('File ' + event.path + ' was ' + event.type);
+            browserSync.notify('伺服器重新啟動，頁面即將同步重置...');
+            browserSync.reload({
+                stream: false
+            });
+        }, 5000);
+    });
+    gulp.watch(watchList.staticFileList, ['favicon', 'html', 'css']).on('change', function(event) {
+        setTimeout(function() {
+            utility.log('File ' + event.path + ' was ' + event.type);
+            browserSync.notify('伺服器重新啟動，頁面即將同步重置...');
+            browserSync.reload({
+                stream: false
+            });
+        }, 5000);
+    });
+});
+
+gulp.task('startDevelopmentServer', ['preRebuild', 'lint', 'buildBackend', 'buildFrontend', 'frontendMonitor'], function() {
     let nodemonOption = {
         script: './build/server.js',
         delayTime: 1,
@@ -65,9 +77,9 @@ gulp.task('startDevelopmentServer', ['preRebuild', 'transpile', 'buildBackend', 
             'NODE_ENV': serverConfig.development ? 'development' : 'production'
         },
         verbose: false,
-        ext: 'html js mustache',
+        ext: 'html js handlebars',
         watch: ['./src/backend/'],
-        tasks: ['preRebuild', 'transpile', 'buildBackend', 'buildFrontend']
+        tasks: ['preRebuild', 'lint', 'buildBackend', 'buildFrontend']
     };
     return $.nodemon(nodemonOption)
         .on('start', function() {
@@ -97,9 +109,9 @@ function startBrowserSync() {
         return;
     }
     let option = {
-        proxy: 'http://localhost:' + serverConfig.serverPort + '/productionHistory/isProdDataForm/index.html?formReference=isProdData',
-        port: 9999,
-        // files: ['./src/frontend/** /*.*'],
+        proxy: 'http://localhost:' + serverConfig.serverPort + '/ldapValidation/login.html',
+        port: 9995,
+        files: ['./src/frontend/** /*.*'],
         ghostMode: {
             clicks: true,
             location: false,

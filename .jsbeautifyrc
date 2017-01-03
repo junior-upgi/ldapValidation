@@ -6,5 +6,6 @@
         },
         "css": ["css", "scss"],
         "html": ["htm", "html", "handlebars"]
-    }
+    },
+    "brace_style": "collapse-preserve-inline"
 }

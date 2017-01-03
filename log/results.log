@@ -1,0 +1,422 @@
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 09:12:50"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 09:18:48"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 09:30:00"}
+{"level":"verbose","message":"2017-01-01 09:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 09:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 09:30:02"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 09:33:27"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 09:44:32"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 09:48:58"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 09:49:37"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 10:00:00"}
+{"level":"verbose","message":"2017-01-01 10:00:00 ldapValidation server reporting in","timestamp":"2017-01-01 10:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 10:00:02"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 10:00:14"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 10:01:10"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 10:02:41"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 10:04:42"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 10:05:37"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 10:10:15"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 10:11:42"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 10:19:55"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 10:21:10"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 10:21:18"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-01 10:21:38"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 10:30:00"}
+{"level":"verbose","message":"2017-01-01 10:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 10:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 10:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 11:00:00"}
+{"level":"verbose","message":"2017-01-01 11:00:00 ldapValidation server reporting in","timestamp":"2017-01-01 11:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 11:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 11:30:00"}
+{"level":"verbose","message":"2017-01-01 11:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 11:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 11:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 12:00:00"}
+{"level":"verbose","message":"2017-01-01 12:00:00 ldapValidation server reporting in","timestamp":"2017-01-01 12:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 12:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 12:30:00"}
+{"level":"verbose","message":"2017-01-01 12:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 12:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 12:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 13:00:00"}
+{"level":"verbose","message":"2017-01-01 13:00:00 ldapValidation server reporting in","timestamp":"2017-01-01 13:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 13:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 13:30:00"}
+{"level":"verbose","message":"2017-01-01 13:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 13:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 13:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 14:00:00"}
+{"level":"verbose","message":"2017-01-01 14:00:00 ldapValidation server reporting in","timestamp":"2017-01-01 14:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 14:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 14:30:00"}
+{"level":"verbose","message":"2017-01-01 14:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 14:30:04"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 14:30:04"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 15:00:01"}
+{"level":"verbose","message":"2017-01-01 15:00:01 ldapValidation server reporting in","timestamp":"2017-01-01 15:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 15:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 15:30:00"}
+{"level":"verbose","message":"2017-01-01 15:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 15:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 15:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 16:00:00"}
+{"level":"verbose","message":"2017-01-01 16:00:00 ldapValidation server reporting in","timestamp":"2017-01-01 16:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 16:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 16:30:00"}
+{"level":"verbose","message":"2017-01-01 16:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 16:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 16:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 17:00:00"}
+{"level":"verbose","message":"2017-01-01 17:00:00 ldapValidation server reporting in","timestamp":"2017-01-01 17:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 17:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 17:30:00"}
+{"level":"verbose","message":"2017-01-01 17:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 17:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 17:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 18:00:00"}
+{"level":"verbose","message":"2017-01-01 18:00:00 ldapValidation server reporting in","timestamp":"2017-01-01 18:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 18:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 18:30:00"}
+{"level":"verbose","message":"2017-01-01 18:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 18:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 18:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 19:00:02"}
+{"level":"verbose","message":"2017-01-01 19:00:02 ldapValidation server reporting in","timestamp":"2017-01-01 19:00:04"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 19:00:04"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 19:30:00"}
+{"level":"verbose","message":"2017-01-01 19:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 19:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 19:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 20:00:00"}
+{"level":"verbose","message":"2017-01-01 20:00:00 ldapValidation server reporting in","timestamp":"2017-01-01 20:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 20:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 20:30:01"}
+{"level":"verbose","message":"2017-01-01 20:30:01 ldapValidation server reporting in","timestamp":"2017-01-01 20:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 20:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 21:00:00"}
+{"level":"verbose","message":"2017-01-01 21:00:00 ldapValidation server reporting in","timestamp":"2017-01-01 21:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 21:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 21:30:00"}
+{"level":"verbose","message":"2017-01-01 21:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 21:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 21:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 22:00:00"}
+{"level":"verbose","message":"2017-01-01 22:00:00 ldapValidation server reporting in","timestamp":"2017-01-01 22:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 22:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 22:30:00"}
+{"level":"verbose","message":"2017-01-01 22:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 22:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 22:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 23:00:00"}
+{"level":"verbose","message":"2017-01-01 23:00:00 ldapValidation server reporting in","timestamp":"2017-01-01 23:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 23:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-01 23:30:00"}
+{"level":"verbose","message":"2017-01-01 23:30:00 ldapValidation server reporting in","timestamp":"2017-01-01 23:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-01 23:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 00:00:00"}
+{"level":"verbose","message":"2017-01-02 00:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 00:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 00:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 00:30:00"}
+{"level":"verbose","message":"2017-01-02 00:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 00:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 00:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 01:00:00"}
+{"level":"verbose","message":"2017-01-02 01:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 01:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 01:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 01:30:00"}
+{"level":"verbose","message":"2017-01-02 01:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 01:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 01:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 05:00:00"}
+{"level":"verbose","message":"2017-01-02 05:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 05:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 05:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 05:30:00"}
+{"level":"verbose","message":"2017-01-02 05:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 05:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 05:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 06:00:00"}
+{"level":"verbose","message":"2017-01-02 06:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 06:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 06:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 06:30:00"}
+{"level":"verbose","message":"2017-01-02 06:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 06:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 06:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 07:00:00"}
+{"level":"verbose","message":"2017-01-02 07:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 07:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 07:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 07:30:00"}
+{"level":"verbose","message":"2017-01-02 07:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 07:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 07:30:01"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 07:37:38"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 07:39:04"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 07:40:52"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 07:48:46"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 08:00:00"}
+{"level":"verbose","message":"2017-01-02 08:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 08:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 08:00:01"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 08:01:06"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 08:09:08"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 08:13:55"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 08:23:42"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 08:30:00"}
+{"level":"verbose","message":"2017-01-02 08:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 08:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 08:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 09:00:00"}
+{"level":"verbose","message":"2017-01-02 09:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 09:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 09:00:01"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 09:19:38"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 09:23:46"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 09:24:15"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 09:30:00"}
+{"level":"verbose","message":"2017-01-02 09:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 09:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 09:30:02"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 09:38:58"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 09:40:51"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 09:49:03"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 09:50:01"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 09:50:10"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 09:50:10"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 09:50:51"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 09:50:58"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 09:51:07"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 09:51:07"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 09:52:47"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 09:52:48"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 09:53:31"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 09:53:31"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 09:53:34"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 09:53:34"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 09:53:53"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 09:53:54"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 09:54:58"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 09:54:58"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 09:57:46"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 09:57:47"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 09:58:30"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 09:58:30"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 09:58:43"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 09:58:43"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 09:59:45"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 09:59:45"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 10:00:00"}
+{"level":"verbose","message":"2017-01-02 10:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 10:00:05"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 10:00:05"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 10:00:43"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 10:00:43"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 10:01:10"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 10:01:10"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:04:00"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 10:04:24"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 10:04:24"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 10:05:26"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 10:05:26"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 10:05:34"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 10:05:34"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:06:31"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 10:06:50"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 10:06:50"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:07:41"}
+{"level":"info","message":"received login request from undefined","timestamp":"2017-01-02 10:07:52"}
+{"level":"error","message":"LDAP validation failure: UnwillingToPerformError: unauthenticated bind (DN with no password) disallowed","timestamp":"2017-01-02 10:07:52"}
+{"level":"info","message":"received login request from a","timestamp":"2017-01-02 10:08:47"}
+{"level":"error","message":"LDAP validation failure: InvalidCredentialsError: Invalid Credentials","timestamp":"2017-01-02 10:08:47"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:08:58"}
+{"level":"error","message":"LDAP validation failure: InvalidCredentialsError: Invalid Credentials","timestamp":"2017-01-02 10:08:58"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:09:12"}
+{"level":"error","message":"LDAP validation failure: InvalidCredentialsError: Invalid Credentials","timestamp":"2017-01-02 10:09:12"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:09:26"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:09:26"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 10:30:00"}
+{"level":"verbose","message":"2017-01-02 10:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 10:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 10:30:02"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:34:25"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:36:25"}
+{"level":"info","message":"received login request from 12","timestamp":"2017-01-02 10:36:34"}
+{"level":"error","message":"LDAP validation failure: Invalid Credentials","timestamp":"2017-01-02 10:36:34"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:36:40"}
+{"level":"error","message":"LDAP validation failure: Invalid Credentials","timestamp":"2017-01-02 10:36:40"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:36:46"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:36:46"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:38:10"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:38:16"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:38:51"}
+{"level":"error","message":"LDAP validation failure: Invalid Credentials","timestamp":"2017-01-02 10:38:51"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:39:02"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:39:02"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:43:13"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:43:21"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:43:38"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:43:53"}
+{"level":"error","message":"LDAP validation failure: Invalid Credentials","timestamp":"2017-01-02 10:43:54"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:44:11"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:44:11"}
+{"level":"info","message":"05060001 login procedure completed","timestamp":"2017-01-02 10:44:11"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:46:54"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:47:12"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:47:13"}
+{"level":"info","message":"05060001 login procedure completed","timestamp":"2017-01-02 10:47:13"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:48:30"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:48:47"}
+{"level":"error","message":"LDAP validation failure: Invalid Credentials","timestamp":"2017-01-02 10:48:47"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:48:56"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:48:56"}
+{"level":"info","message":"systemMembershipObject setting irregularity: ","timestamp":"2017-01-02 10:48:56"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:49:43"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:50:02"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:50:02"}
+{"level":"info","message":"systemMembershipObject setting irregularity: ","timestamp":"2017-01-02 10:50:02"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:50:11"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:50:11"}
+{"level":"info","message":"systemMembershipObject setting irregularity: ","timestamp":"2017-01-02 10:50:11"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:50:13"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:50:14"}
+{"level":"info","message":"systemMembershipObject setting irregularity: ","timestamp":"2017-01-02 10:50:14"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:50:16"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:50:16"}
+{"level":"info","message":"systemMembershipObject setting irregularity: ","timestamp":"2017-01-02 10:50:16"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:52:13"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:52:36"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:52:37"}
+{"level":"info","message":"systemMembershipObject setting irregularity: [0]","timestamp":"2017-01-02 10:52:37"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:54:39"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:55:03"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:55:03"}
+{"level":"info","message":"systemMembershipObject setting irregularity:","timestamp":"2017-01-02 10:55:03"}
+{"level":"info","message":"undefined","timestamp":"2017-01-02 10:55:03"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:55:19"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:55:19"}
+{"level":"info","message":"systemMembershipObject setting irregularity:","timestamp":"2017-01-02 10:55:20"}
+{"level":"info","message":"undefined","timestamp":"2017-01-02 10:55:20"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:55:34"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:55:34"}
+{"level":"info","message":"systemMembershipObject setting irregularity:","timestamp":"2017-01-02 10:55:34"}
+{"level":"info","message":"undefined","timestamp":"2017-01-02 10:55:34"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:55:48"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:55:48"}
+{"level":"info","message":"systemMembershipObject setting irregularity:","timestamp":"2017-01-02 10:55:48"}
+{"level":"info","message":"undefined","timestamp":"2017-01-02 10:55:48"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 10:56:58"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:57:14"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:57:14"}
+{"level":"info","message":"systemMembershipObject setting irregularity:","timestamp":"2017-01-02 10:57:14"}
+{"level":"info","message":"undefined","timestamp":"2017-01-02 10:57:14"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:57:44"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:57:44"}
+{"level":"info","message":"systemMembershipObject setting irregularity:","timestamp":"2017-01-02 10:57:44"}
+{"level":"info","message":"undefined","timestamp":"2017-01-02 10:57:44"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:57:47"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:57:47"}
+{"level":"info","message":"systemMembershipObject setting irregularity:","timestamp":"2017-01-02 10:57:47"}
+{"level":"info","message":"undefined","timestamp":"2017-01-02 10:57:47"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:57:50"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:57:50"}
+{"level":"info","message":"05060001 1 access privilege validated","timestamp":"2017-01-02 10:57:50"}
+{"level":"info","message":"05060001 login procedure completed","timestamp":"2017-01-02 10:57:50"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:57:56"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:57:56"}
+{"level":"info","message":"systemMembershipObject setting irregularity:","timestamp":"2017-01-02 10:57:56"}
+{"level":"info","message":"undefined","timestamp":"2017-01-02 10:57:56"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:57:58"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:57:58"}
+{"level":"info","message":"systemMembershipObject setting irregularity:","timestamp":"2017-01-02 10:57:58"}
+{"level":"info","message":"undefined","timestamp":"2017-01-02 10:57:58"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:58:00"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:58:00"}
+{"level":"info","message":"systemMembershipObject setting irregularity:","timestamp":"2017-01-02 10:58:00"}
+{"level":"info","message":"undefined","timestamp":"2017-01-02 10:58:00"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 10:58:03"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 10:58:03"}
+{"level":"info","message":"05060001 1 access privilege validated","timestamp":"2017-01-02 10:58:03"}
+{"level":"info","message":"05060001 login procedure completed","timestamp":"2017-01-02 10:58:03"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 11:00:00"}
+{"level":"verbose","message":"2017-01-02 11:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 11:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 11:00:01"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 11:01:15"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 11:07:51"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 11:07:51"}
+{"level":"info","message":"systemMembershipObject.length: 0","timestamp":"2017-01-02 11:07:51"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 11:07:56"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 11:07:56"}
+{"level":"info","message":"05060001 1 access privilege validated","timestamp":"2017-01-02 11:07:56"}
+{"level":"info","message":"05060001 login procedure completed","timestamp":"2017-01-02 11:07:56"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 11:13:53"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 11:21:57"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 11:22:29"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 11:22:30"}
+{"level":"info","message":"systemMembershipObject.length: 0","timestamp":"2017-01-02 11:22:30"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 11:22:32"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 11:22:32"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 11:35:49"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 11:35:56"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 11:36:15"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 11:36:15"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 11:37:40"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 11:37:46"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 11:38:04"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 11:38:04"}
+{"level":"info","message":"05060001 1 access privilege validated","timestamp":"2017-01-02 11:38:04"}
+{"level":"info","message":"05060001 login procedure completed","timestamp":"2017-01-02 11:38:04"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 11:38:45"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 11:43:52"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 11:43:52"}
+{"level":"info","message":"05060001 1 access privilege validated","timestamp":"2017-01-02 11:43:52"}
+{"level":"info","message":"05060001 login procedure completed","timestamp":"2017-01-02 11:43:52"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 12:00:00"}
+{"level":"verbose","message":"2017-01-02 12:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 12:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 12:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 12:30:00"}
+{"level":"verbose","message":"2017-01-02 12:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 12:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 12:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 13:00:00"}
+{"level":"verbose","message":"2017-01-02 13:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 13:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 13:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 13:30:00"}
+{"level":"verbose","message":"2017-01-02 13:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 13:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 13:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 14:00:00"}
+{"level":"verbose","message":"2017-01-02 14:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 14:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 14:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 14:30:00"}
+{"level":"verbose","message":"2017-01-02 14:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 14:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 14:30:01"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 15:00:00"}
+{"level":"verbose","message":"2017-01-02 15:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 15:00:01"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 15:00:01"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 15:05:32"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 15:05:32"}
+{"level":"info","message":"05060001 1 access privilege validated","timestamp":"2017-01-02 15:05:32"}
+{"level":"info","message":"05060001 login procedure completed","timestamp":"2017-01-02 15:05:32"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 15:07:48"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 15:07:48"}
+{"level":"info","message":"05060001 1 access privilege validated","timestamp":"2017-01-02 15:07:48"}
+{"level":"info","message":"05060001 login procedure completed","timestamp":"2017-01-02 15:07:48"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-02 15:08:46"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 15:09:03"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 15:09:03"}
+{"level":"info","message":"05060001 1 access privilege validated","timestamp":"2017-01-02 15:09:03"}
+{"level":"info","message":"05060001 login procedure completed","timestamp":"2017-01-02 15:09:03"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 15:30:00"}
+{"level":"verbose","message":"2017-01-02 15:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 15:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 15:30:02"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 15:34:01"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 15:34:01"}
+{"level":"info","message":"05060001 1 access privilege validated","timestamp":"2017-01-02 15:34:01"}
+{"level":"info","message":"05060001 login procedure completed","timestamp":"2017-01-02 15:34:01"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 15:34:21"}
+{"level":"error","message":"LDAP validation failure: Invalid Credentials","timestamp":"2017-01-02 15:34:21"}
+{"level":"info","message":"received login request from 05060001","timestamp":"2017-01-02 15:34:30"}
+{"level":"info","message":"05060001 account info validated, checking access rights","timestamp":"2017-01-02 15:34:30"}
+{"level":"info","message":"05060001 1 access privilege validated","timestamp":"2017-01-02 15:34:30"}
+{"level":"info","message":"05060001 login procedure completed","timestamp":"2017-01-02 15:34:30"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 16:00:00"}
+{"level":"verbose","message":"2017-01-02 16:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 16:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 16:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 16:30:00"}
+{"level":"verbose","message":"2017-01-02 16:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 16:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 16:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 17:00:00"}
+{"level":"verbose","message":"2017-01-02 17:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 17:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 17:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 17:30:00"}
+{"level":"verbose","message":"2017-01-02 17:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 17:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 17:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 18:00:00"}
+{"level":"verbose","message":"2017-01-02 18:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 18:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 18:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 18:30:00"}
+{"level":"verbose","message":"2017-01-02 18:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 18:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 18:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 19:00:00"}
+{"level":"verbose","message":"2017-01-02 19:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 19:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 19:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 19:30:00"}
+{"level":"verbose","message":"2017-01-02 19:30:00 ldapValidation server reporting in","timestamp":"2017-01-02 19:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 19:30:02"}
+{"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 20:00:00"}
+{"level":"verbose","message":"2017-01-02 20:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 20:00:02"}
+{"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 20:00:02"}
