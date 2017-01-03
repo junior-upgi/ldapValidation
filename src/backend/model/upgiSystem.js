@@ -10,7 +10,7 @@ const list = [{
     reference: 'overdueMonitor',
     cReference: '逾期款監控系統',
     functionList: [],
-    frontendUrl: 'http://localhost:9003/overdueMonitor/index.html',
+    frontendUrl: 'http://upgi.ddns.net:9003/overdueMonitor/index.html',
     hide: false
 }, {
     id: 2,
