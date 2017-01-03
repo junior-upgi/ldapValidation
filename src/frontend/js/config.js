@@ -1,6 +1,6 @@
 const systemReference = 'ldapValidation';
 
-const development = true;
+const development = false;
 
 function serverHost() {
     if (development === true) {

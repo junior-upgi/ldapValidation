@@ -420,3 +420,5 @@
 {"level":"info","message":"ldapValidation reporting mechanism triggered","timestamp":"2017-01-02 20:00:00"}
 {"level":"verbose","message":"2017-01-02 20:00:00 ldapValidation server reporting in","timestamp":"2017-01-02 20:00:02"}
 {"level":"info","message":"ldapValidation reporting mechanism completed","timestamp":"2017-01-02 20:00:02"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-03 08:25:11"}
+{"level":"info","message":"ldapValidation server in operation... (http://127.0.0.1:9005)","timestamp":"2017-01-03 08:26:22"}

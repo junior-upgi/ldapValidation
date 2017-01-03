@@ -1,6 +1,6 @@
 const systemReference = 'ldapValidation';
 
-const development = true;
+const development = false;
 const serverHost = 'http://127.0.0.1';
 const serverPort = 9005;
 
